@@ -1,0 +1,18 @@
+.navbar-skillforge {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.skillforge-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #0052cc !important;
+  letter-spacing: 0.5px;
+}
+
+.navbar-user {
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+  color: #666;
+  font-weight: 500;
+}

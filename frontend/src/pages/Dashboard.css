@@ -1,0 +1,327 @@
+/* Dashboard Page */
+.dashboard-page {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.dashboard-container {
+  padding: 2rem 0;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.loading-spinner .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: #667eea;
+}
+
+.loading-spinner p {
+  margin-top: 1rem;
+  color: #666;
+}
+
+/* Header */
+.dashboard-header {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.welcome-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.welcome-title .highlight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Metrics */
+.metric-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.metric-card.metric-enrolled {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.metric-card.metric-completed {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.metric-card.metric-streak {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.metric-card.metric-proficiency {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.metric-icon {
+  font-size: 2rem;
+}
+
+.metric-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  background: white;
+}
+
+.card-header-custom {
+  background: white;
+  border-bottom: 1px solid #e8e8e8;
+  border-radius: 16px 16px 0 0;
+  padding: 1.5rem;
+}
+
+.card-title {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Skills Radar */
+.skills-card {
+  background: white;
+}
+
+.radar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radar-svg {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.radar-legend {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.legend-color {
+  width: 8px;
+  height: 8px;
+  background: #007bff;
+  border-radius: 50%;
+}
+
+.legend-skill {
+  font-weight: 600;
+  color: #333;
+}
+
+.legend-score {
+  color: #667eea;
+  font-weight: 700;
+}
+
+/* Analytics */
+.analytics-card {}
+
+.risk-section,
+.prediction-section,
+.subjects-section {
+  margin-bottom: 1.5rem;
+}
+
+.risk-header,
+.prediction-header {
+  margin-bottom: 1rem;
+}
+
+.risk-bar,
+.prediction-bar,
+.subject-bar {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.prediction-score {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #667eea;
+}
+
+.subject-item {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.subject-header {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.subject-name {
+  font-weight: 600;
+}
+
+.subject-score {
+  color: #667eea;
+  font-weight: 700;
+}
+
+/* Courses */
+.courses-card {}
+
+.course-item-card {
+  background: #fafafa;
+  transition: all 0.3s;
+}
+
+.course-item-card:hover {
+  background: #f5f5f5;
+  border-color: #667eea !important;
+}
+
+.course-title {
+  color: #1a1a1a;
+}
+
+.course-progress {
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+}
+
+.empty-state {
+  padding: 3rem 1rem;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h6 {
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+/* Recommendations */
+.recommendations-card {}
+
+.rec-item {
+  transition: all 0.3s;
+}
+
+.rec-item:hover {
+  background: #f8f9fa;
+}
+
+.rec-score {
+  display: inline-block;
+}
+
+.rec-reason {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 1.5rem;
+  }
+
+  .header-top {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+
+  .metric-card {
+    text-align: center;
+  }
+
+  .metric-header {
+    justify-content: center;
+  }
+
+  .radar-legend {
+    grid-template-columns: 1fr;
+  }
+}
+}
