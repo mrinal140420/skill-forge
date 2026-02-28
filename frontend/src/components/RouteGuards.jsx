@@ -1,20 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { Container, Spinner } from 'react-bootstrap';
-import { AuthContext } from '../context/AuthContext';
+import { useAuthStore } from '@/stores/authStore';
 
 const FullPageLoader = () => (
-  <Container className="py-5 text-center">
-    <Spinner animation="border" role="status" />
-    <p className="mt-3 text-muted mb-0">Loading your session...</p>
-  </Container>
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="text-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+      <p className="text-gray-600">Loading your session...</p>
+    </div>
+  </div>
 );
 
 export const ProtectedRoute = () => {
-  const { isAuthenticated, initializing } = useContext(AuthContext);
+  const { isAuthenticated, loading } = useAuthStore();
   const location = useLocation();
 
-  if (initializing) {
+  if (loading) {
     return <FullPageLoader />;
   }
 
@@ -26,9 +27,9 @@ export const ProtectedRoute = () => {
 };
 
 export const PublicOnlyRoute = () => {
-  const { isAuthenticated, initializing } = useContext(AuthContext);
+  const { isAuthenticated, loading } = useAuthStore();
 
-  if (initializing) {
+  if (loading) {
     return <FullPageLoader />;
   }
 

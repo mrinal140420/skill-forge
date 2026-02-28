@@ -1,15 +1,18 @@
 import axios from 'axios';
+import { useAuthStore } from '../stores/authStore';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
+  timeout: 10000,
 });
 
 // Add token to requests
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
+    // Try to get token from store or localStorage
+    const token = useAuthStore.getState().token || localStorage.getItem('authToken');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -17,6 +20,23 @@ apiClient.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
+
+// Handle response errors
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Unauthorized - clear auth
+      useAuthStore.getState().logout();
+      localStorage.removeItem('authToken');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default apiClient;
+
 
 // Auth APIs
 export const authAPI = {
@@ -62,5 +82,3 @@ export const recommendationsAPI = {
   getRecommendations: () =>
     apiClient.get('/recommendations/me'),
 };
-
-export default apiClient;
